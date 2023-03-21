@@ -1,0 +1,38 @@
+@use '../utilities/variables' as *;
+
+.editor {
+    .article__header {
+        // text-align: center;
+        border: none;
+        outline: none;
+        background-color: $bcg-primary;
+        font-weight: bold;
+        font-size: 28px;
+        margin: 10px 0;
+    }
+}
+
+.ql-container.ql-snow {
+    border: none;
+}
+
+.ql-snow .ql-picker-label {
+    padding-left: 0;
+}
+
+.ql-toolbar.ql-snow {
+    border: none;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: start;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.ql-editor {
+    height: 297mm;
+    width: 210mm;
+    padding-left: 0;
+}

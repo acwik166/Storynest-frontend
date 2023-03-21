@@ -1,0 +1,100 @@
+@use '../utilities/variables' as *;
+
+.article-detail {
+    .ql-toolbar.ql-snow {
+        display: none;
+    }
+
+    overflow-x: hidden;
+
+    .article__heading {
+        h2 {
+            font-size: 42px;
+            margin-bottom: 0;
+            word-wrap: break-word;
+        }
+
+        .article__dates {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            p {
+                color: $text-light;
+            }
+        }
+
+    }
+
+    .article__body {
+        display: flex;
+        flex-direction: column;
+
+        .editor {
+            .ql-editor {
+                overflow: hidden;
+            }
+        }
+
+        .comments__top {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .detail-comments {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            padding: 5px 0;
+
+            @include breakpoint(md) {
+                background-color: $bcg-secondary;
+                flex-direction: row;
+            }
+
+            textarea {
+                outline-color: $accent-primary;
+                border: none;
+                border-radius: 2px;
+                padding: 15px;
+                resize: none;
+                font-size: 16px;
+                width: 90%;
+                height: 20px;
+                flex-grow: 2;
+
+                @include breakpoint(md) {
+                    width: 100%;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            button {
+                width: 100%;
+                margin-top: 5px;
+
+                @include breakpoint(md) {
+                    width: auto;
+                    margin: 0 5px;
+                }
+            }
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}

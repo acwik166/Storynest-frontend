@@ -1,0 +1,12 @@
+@use '../utilities/variables' as *;
+
+
+.input-grade__item {
+    &--filled {
+        color: gold;
+    }
+
+    &--black {
+        color: $text-hover;
+    }
+}

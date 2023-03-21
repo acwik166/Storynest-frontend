@@ -1,0 +1,18 @@
+$bcg-primary: #f2f2f2;
+$bcg-secondary: #ffffff;
+$accent-primary: rgb(97, 31, 235);
+$accent-secondary: rgb(110, 71, 255);
+$text-dark: black;
+$text-light: #797979;
+$text-primary: #ffffff;
+$text-hover: #6e6e6e;
+
+@mixin breakpoint($point) {
+    @if $point ==md {
+
+        // 768px
+        @media (min-width: 48rem) {
+            @content;
+        }
+    }
+}

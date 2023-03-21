@@ -1,0 +1,50 @@
+@use '../utilities/variables' as *;
+
+.user-edit {
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 40px;
+
+        @include breakpoint(md) {
+            width: 50%;
+            margin: auto;
+        }
+
+        .form-names {
+            display: flex;
+            flex-direction: column;
+
+            @include breakpoint(md) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            gap: 20px;
+
+            .form-names__elem {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 15px;
+            outline-color: $accent-primary;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 2px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    }
+}

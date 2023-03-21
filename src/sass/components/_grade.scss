@@ -1,0 +1,18 @@
+.grade-div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.grade {
+    color: gold;
+    cursor: pointer;
+
+    &--small {
+        font-size: 16px;
+    }
+
+    &--big {
+        font-size: 22px;
+    }
+}

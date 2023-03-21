@@ -1,0 +1,97 @@
+@use '../utilities/variables' as *;
+
+.app-btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid $accent-primary;
+
+    a {
+        text-decoration: none;
+        color: $text-dark;
+    }
+
+    &:hover {
+        background-color: $bcg-secondary;
+    }
+
+    &--accent {
+        background-color: $accent-primary;
+
+        color: $text-primary;
+
+        a {
+            color: $text-primary;
+        }
+
+        &:hover {
+            background-color: $accent-secondary;
+        }
+    }
+
+    &--icon {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+}
+
+.btn-delete {
+    color: red;
+    cursor: pointer;
+    padding: 2px 4px;
+    border: none;
+    background: none;
+    font-size: 18px;
+
+    &::before {
+        content: "\2716";
+    }
+
+    &:hover {
+        background-color: red;
+        border-radius: 2px;
+        color: white;
+    }
+}
+
+.btn-edit {
+    color: $accent-primary;
+    cursor: pointer;
+    padding: 2px 4px;
+    border: none;
+    background: none;
+    font-size: 18px;
+
+    &::before {
+        content: "\270E";
+    }
+
+    &:hover {
+        background-color: $accent-primary;
+        border-radius: 2px;
+        color: white;
+    }
+}
+
+.btn-arrow {
+    border: solid $text-primary;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 6px;
+
+    &--down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    &--up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+    }
+}

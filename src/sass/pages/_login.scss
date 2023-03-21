@@ -1,0 +1,99 @@
+@use '../utilities/variables' as *;
+
+.login {
+    height: 100vh;
+    background-color: $bcg-secondary;
+
+    @include breakpoint(md) {
+        display: flex;
+        background-color: $bcg-primary;
+    }
+
+    .login__wrapper {
+        background-color: $bcg-secondary;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        border-radius: 2px;
+
+        @include breakpoint(md) {
+            justify-content: center;
+        }
+
+        @include breakpoint(md) {
+            width: 512px;
+        }
+
+        .login__text {
+            margin: 20px 0;
+            max-width: 80%;
+
+            @include breakpoint(md) {
+                max-width: 60%;
+            }
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .input__icons {
+                width: 100%;
+                position: relative;
+
+                &:hover {
+                    .icon {
+                        color: $accent-primary;
+                    }
+                }
+            }
+
+            input {
+                border: 1px solid #ececec;
+                border-radius: 5px;
+                padding: 10px;
+                background-color: #f8f8f8;
+                color: #b1b1b1;
+                font-weight: bold;
+
+                &:hover,
+                &:focus {
+                    outline-width: thin;
+                    outline-style: solid;
+                    outline-color: $accent-primary;
+                    color: $text-dark;
+                }
+
+            }
+
+            .icon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: #b1b1b1;
+            }
+        }
+
+        .redirect {
+            margin: 30px 0 20px 0;
+        }
+
+        .reg-msg {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: $accent-primary;
+            font-weight: bold;
+            margin: 0 0 0 5px;
+
+            &:hover {
+                color: $accent-secondary;
+            }
+        }
+    }
+}

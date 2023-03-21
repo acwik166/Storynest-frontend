@@ -1,0 +1,40 @@
+@use '../utilities/variables' as *;
+
+.article {
+    background-color: $bcg-secondary;
+    border-radius: 2px;
+    padding: 20px;
+
+    word-break: break-all;
+    hyphens: manual;
+
+    h3 {
+        max-height: 80px;
+
+        margin: 0 0 5px 0;
+
+        a {
+            text-decoration: none;
+            color: $text-dark;
+        }
+    }
+
+    .title-more {
+        -webkit-mask-image: linear-gradient(0deg, transparent 16px, red 66px);
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    small {
+        color: $accent-primary;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

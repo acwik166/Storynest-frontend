@@ -1,0 +1,13 @@
+@use '../utilities/variables' as *;
+
+.write__articles {
+    ul {
+        margin: 0;
+    }
+
+    .write__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

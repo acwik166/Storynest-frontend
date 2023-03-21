@@ -1,0 +1,14 @@
+@use '../utilities/variables' as *;
+
+.home {
+    &__top-articles {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include breakpoint(md) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        gap: 10px;
+    }
+}

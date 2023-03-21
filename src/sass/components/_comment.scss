@@ -1,0 +1,42 @@
+@use '../utilities/variables' as *;
+
+.comment {
+    background-color: $bcg-secondary;
+    border-radius: 2px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .comment-wrapper {
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        word-wrap: break-word;
+        width: 80%;
+
+        h3 {
+            margin: 0 0 5px 0;
+        }
+
+        p {
+            color: $text-light;
+        }
+
+
+        .comment-edit {
+            display: flex;
+            border: none;
+            margin: 16px 0;
+            padding: 10px;
+            outline-color: $accent-primary;
+        }
+    }
+}

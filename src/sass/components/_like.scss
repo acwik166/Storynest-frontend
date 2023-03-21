@@ -1,0 +1,31 @@
+@use '../utilities/variables' as *;
+
+.like-div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.like {
+    cursor: pointer;
+
+    &--small {
+        font-size: 14px;
+    }
+
+    &--big {
+        font-size: 22px;
+    }
+
+    &--true {
+        color: $accent-primary;
+
+        &:hover {
+            color: $accent-secondary;
+        }
+    }
+
+    &--false {
+        color: $text-light;
+    }
+}

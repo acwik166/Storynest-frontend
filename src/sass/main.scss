@@ -1,0 +1,46 @@
+@use './utilities/variables' as *;
+
+@use './components/header';
+@use './components/buttons';
+@use './components/articles-list';
+@use './components/article';
+@use './components/spinner';
+@use './components/comment-date';
+@use './components/comment';
+@use './components/like';
+@use './components/grade';
+@use './components/input-grade';
+@use './components/article-link';
+@use './components/filter';
+
+@use './pages/home';
+@use './pages/editor';
+@use './pages/write';
+@use './pages/login';
+@use './pages/articles';
+@use './pages/article-detail';
+@use './pages/user';
+@use './pages/user-edit';
+@use './pages/not-found';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $bcg-primary;
+
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.page-heading {
+    text-align: center;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}
