@@ -93,7 +93,7 @@ export default function TextEditor() {
     }, [socket, quill])
 
     useEffect(() => {
-        const s = io('https://storynestbackend-production.up.railway.app/socket.io/')
+        const s = io('https://storynestbackend-production.up.railway.app/socket.io')
         setSocket(s)
 
         return () => {
