@@ -17,7 +17,7 @@ export default function User() {
         const fetchApi = async () => {
             try {
                 console.log(headers(user.accessToken))
-                const [articlesRes, commentsRes] = await Promise.all([fetch('http://localhost:3001/api/articles/user/', { headers: headers(user.accessToken) }), fetch('http://localhost:3001/api/comments/user/', { headers: headers(user.accessToken) })])
+                const [articlesRes, commentsRes] = await Promise.all([fetch('https://storynestbackend-production.up.railway.app/api/articles/user/', { headers: headers(user.accessToken) }), fetch('https://storynestbackend-production.up.railway.app/api/comments/user/', { headers: headers(user.accessToken) })])
                 const [articlesData, commentsData] = await Promise.all([articlesRes.json(), commentsRes.json()])
 
                 setArticles(articlesData)

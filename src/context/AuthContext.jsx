@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     // refresh token every 4 minutes
     setInterval(async () => {
         if (user == null) return
-        const res = await fetch('http://localhost:3001/api/auth/refresh', {
+        const res = await fetch('https://storynestbackend-production.up.railway.app/api/auth/refresh', {
             headers: {
                 Accept: "application/json, text/plain, */*",
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const res = await fetch('http://localhost:3001/api/auth/login',
+            const res = await fetch('https://storynestbackend-production.up.railway.app/api/auth/login',
                 {
                     headers: {
                         Accept: "application/json, text/plain, */*",
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const register = async (firstName, lastName, email, password) => {
-        const res = await fetch('http://localhost:3001/api/auth/register',
+        const res = await fetch('https://storynestbackend-production.up.railway.app/api/auth/register',
             {
                 headers: {
                     Accept: "application/json, text/plain, */*",
@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const logout = async (user) => {
-        const res = await fetch('http://localhost:3001/api/auth/logout',
+        const res = await fetch('https://storynestbackend-production.up.railway.app/api/auth/logout',
             {
                 headers: {
                     Accept: "application/json, text/plain, */*",

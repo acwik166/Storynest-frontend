@@ -15,7 +15,7 @@ export default function Comment({ comment, setComments, comments }) {
 
     useEffect(() => {
         const fetchApi = async () => {
-            const res = await fetch(`http://localhost:3001/api/auth/${comment.author}`)
+            const res = await fetch(`https://storynestbackend-production.up.railway.app/api/auth/${comment.author}`)
             const data = await res.json()
 
             setAuthor(data)
@@ -27,7 +27,7 @@ export default function Comment({ comment, setComments, comments }) {
         if (comment.author !== author?._id) return
 
         try {
-            const remove = await fetch(`http://localhost:3001/api/comments/${comment._id}`, {
+            const remove = await fetch(`https://storynestbackend-production.up.railway.app/api/comments/${comment._id}`, {
                 headers: headers(user.accessToken),
                 credentials: 'include',
                 method: 'DELETE',
@@ -44,7 +44,7 @@ export default function Comment({ comment, setComments, comments }) {
         if (commentEdit == '') return
 
         try {
-            const update = await fetch(`http://localhost:3001/api/comments/${comment?._id}`, {
+            const update = await fetch(`https://storynestbackend-production.up.railway.app/api/comments/${comment?._id}`, {
                 headers: headers(user.accessToken),
                 credentials: 'include',
                 method: 'PUT',

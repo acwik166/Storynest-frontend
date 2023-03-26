@@ -10,7 +10,7 @@ export default function ArticleLink({ article, setArticles }) {
 
     const handleDelete = async (article) => {
         try {
-            const remove = await fetch(`http://localhost:3001/api/articles/${article._id}`, {
+            const remove = await fetch(`https://storynestbackend-production.up.railway.app/api/articles/${article._id}`, {
                 headers: headers(user.accessToken),
                 credentials: 'include',
                 method: 'DELETE',

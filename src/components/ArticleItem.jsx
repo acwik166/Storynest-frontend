@@ -10,7 +10,7 @@ export default function ArticleItem({ article }) {
     useEffect(() => {
         const fetchAuthor = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/api/auth/${article?.author}`)
+                const res = await fetch(`https://storynestbackend-production.up.railway.app/api/auth/${article?.author}`)
                 const data = await res.json()
 
                 setAuthor(data)

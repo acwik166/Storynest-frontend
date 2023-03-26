@@ -19,7 +19,7 @@ export default function Write() {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/articles/user/', {
+                const res = await fetch('https://storynestbackend-production.up.railway.app/api/articles/user/', {
                     headers: {
                         Accept: "application/json, text/plain, */*",
                         "Content-Type": "application/json",

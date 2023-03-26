@@ -20,7 +20,7 @@ export default function Like({ object, name }) {
     const like = async () => {
         if (isLiked) {
             try {
-                const like = await fetch(`http://localhost:3001/api/${name}/unlike/${object._id}`, {
+                const like = await fetch(`https://storynestbackend-production.up.railway.app/api/${name}/unlike/${object._id}`, {
                     headers: headers(user.accessToken),
                     credentials: 'include',
                     method: 'PUT',
@@ -32,7 +32,7 @@ export default function Like({ object, name }) {
             }
         } else {
             try {
-                const unlike = await fetch(`http://localhost:3001/api/${name}/like/${object._id}`, {
+                const unlike = await fetch(`https://storynestbackend-production.up.railway.app/api/${name}/like/${object._id}`, {
                     headers: headers(user.accessToken),
                     credentials: 'include',
                     method: 'PUT',

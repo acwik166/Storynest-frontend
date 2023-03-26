@@ -42,7 +42,7 @@ export default function TextEditor() {
     useEffect(() => {
         const fetchArticle = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/api/articles/${documentId}`)
+                const res = await fetch(`https://storynestbackend-production.up.railway.app/api/articles/${documentId}`)
                 const data = await res.json()
                 if (data.author !== user.user?._id) {
                     return <Navigate to="/" />
@@ -93,7 +93,7 @@ export default function TextEditor() {
     }, [socket, quill])
 
     useEffect(() => {
-        const s = io('http://localhost:3000')
+        const s = io('https://storynestbackend-production.up.railway.app')
         setSocket(s)
 
         return () => {

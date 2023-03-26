@@ -29,10 +29,10 @@ export default function ArticleDetail() {
     useEffect(() => {
         const fetchArticle = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/api/articles/${id}`)
+                const res = await fetch(`https://storynestbackend-production.up.railway.app/api/articles/${id}`)
                 const data = await res.json()
 
-                const [articleRes, commentsRes] = await Promise.all([fetch(`http://localhost:3001/api/articles/${id}`), fetch(`http://localhost:3001/api/comments/article/${id}`)])
+                const [articleRes, commentsRes] = await Promise.all([fetch(`https://storynestbackend-production.up.railway.app/api/articles/${id}`), fetch(`https://storynestbackend-production.up.railway.app/api/comments/article/${id}`)])
                 const [articleData, commentsData] = await Promise.all([await articleRes.json(), await commentsRes.json()])
 
                 setComments(commentsData)
@@ -66,7 +66,7 @@ export default function ArticleDetail() {
         if (commentInput === undefined) return
 
         try {
-            const res = await fetch('http://localhost:3001/api/comments/', {
+            const res = await fetch('https://storynestbackend-production.up.railway.app/api/comments/', {
                 headers: headers(user.accessToken),
                 credentials: 'include',
                 method: 'POST',

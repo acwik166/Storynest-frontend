@@ -10,7 +10,7 @@ export default function Articles() {
     useEffect(() => {
         const fetchApi = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/articles/')
+                const res = await fetch('https://storynestbackend-production.up.railway.app/api/articles/')
                 const data = await res.json()
 
                 setArticles(data)

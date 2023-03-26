@@ -19,7 +19,7 @@ export default function UserEdit() {
 
         try {
             console.log(user.user._id)
-            const res = await fetch(`http://localhost:3001/api/auth/${user.user._id}`, {
+            const res = await fetch(`https://storynestbackend-production.up.railway.app/api/auth/${user.user._id}`, {
                 headers: headers(user.accessToken), body: JSON.stringify({
                     first_name: firstName == '' ? user.user.first_name : firstName,
                     last_name: lastName == '' ? user.user.last_name : lastName,
