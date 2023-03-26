@@ -8,6 +8,8 @@ import { AuthContext } from '../context/AuthContext'
 export default function TextEditor() {
     const { user } = useContext(AuthContext)
 
+    // 3x socket input
+
     const [value, setValue] = useState('');
     const [socket, setSocket] = useState()
     const [quill, setQuill] = useState()

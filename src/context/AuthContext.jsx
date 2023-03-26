@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 export const AuthContext = createContext()
 
@@ -57,6 +58,20 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
             if (error.toString().includes('Unauthorized')) {
                 console.log('not authorized')
+                return <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
+                {/* Same as */ }
+                <ToastContainer />
             }
         }
     }
