@@ -30,7 +30,7 @@ password: test1
 
 or register a new account
 
-[Link to demo app](https://storynest-frontend-production.up.railway.app/ "link")
+## [Link to demo app](https://storynest-frontend-production.up.railway.app/ "link")
 
 ### Login
 ![login](https://user-images.githubusercontent.com/40490177/228266853-3d79b436-5bae-467e-92a1-c6b1aaf482e7.PNG)
