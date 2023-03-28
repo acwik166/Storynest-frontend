@@ -2,7 +2,10 @@
 # Project Title
 
 
-
+## Tech stack
+- React.js
+- Express.js
+- Mongoose
 
 ## Install dependencies
 
@@ -17,6 +20,22 @@ To deploy this project run
 ```bash
   npm run dev
 ```
+
+## Demo
+
+[Link to demo app](https://storynest-frontend-production.up.railway.app/ "link")
+
+### Login
+![login](https://user-images.githubusercontent.com/40490177/228266853-3d79b436-5bae-467e-92a1-c6b1aaf482e7.PNG)
+
+### Home page
+![p1](https://user-images.githubusercontent.com/40490177/228265986-c31cced0-c4cc-42d2-a7da-6889b674f13b.PNG)
+
+### Article Detail
+![article detail](https://user-images.githubusercontent.com/40490177/228266968-744a09bc-70b6-4040-adb2-67f9ce3d4b07.PNG)
+
+### Realtime communication via socket.io
+![realtime](https://user-images.githubusercontent.com/40490177/228267412-d64a92e3-a70a-432a-843c-f1eca4b414e7.PNG)
 
 
 ## Contributing
