@@ -1,5 +1,6 @@
 
-# Project Title
+# Storynest
+Crud application, realtime text communication via socket.io
 
 
 ## Tech stack
