@@ -34,7 +34,7 @@ export default function InputGrade({ article }) {
             return
         } else {
             try {
-                const grade = await fetch(`https://storynestbackend-production.up.railway.app/articles/grade/${article._id}`, {
+                const grade = await fetch(`https://storynestbackend-production.up.railway.app/api/articles/grade/${article._id}`, {
                     headers: headers(user.accessToken),
                     credentials: 'include',
                     method: 'PUT',

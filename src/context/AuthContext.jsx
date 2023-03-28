@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
 
 export const AuthContext = createContext()
 
@@ -25,6 +24,21 @@ export const AuthProvider = ({ children }) => {
         setUser(prev => ({ ...prev, accessToken: data.accessToken }))
     }, 240000)
 
+    const refetchUser = async () => {
+        if (user == null) return
+
+        const res = await fetch(`https://storynestbackend-production.up.railway.app/api/auth/${user.user._id}`)
+        const data = await res.json()
+
+        setUser(prev => ({ ...prev, user: data }))
+        const loggedInUser = localStorage.getItem('auth-user') || null
+
+        if (loggedInUser) {
+            let parseLoggedIn = JSON.parse(loggedInUser)
+            localStorage.setItem('auth-user', JSON.stringify({ ...parseLoggedIn, user: data }))
+        }
+    }
+
     useEffect(() => {
         const fetchUser = async () => {
             const loggedInUser = localStorage.getItem('auth-user') || null
@@ -36,7 +50,7 @@ export const AuthProvider = ({ children }) => {
         fetchUser()
     }, [])
 
-    const login = async (email, password) => {
+    const login = async (email, password, setError) => {
         try {
             const res = await fetch('https://storynestbackend-production.up.railway.app/api/auth/login',
                 {
@@ -57,21 +71,8 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('auth-user', JSON.stringify(data))
         } catch (error) {
             if (error.toString().includes('Unauthorized')) {
+                setError(true)
                 console.log('not authorized')
-                return <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-                />
-                {/* Same as */ }
-                <ToastContainer />
             }
         }
     }
@@ -113,7 +114,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.clear()
     }
 
-    return <AuthContext.Provider value={{ user, login, register, logout }}>
+    return <AuthContext.Provider value={{ user, login, register, logout, refetchUser }}>
         {children}
     </AuthContext.Provider>
 }

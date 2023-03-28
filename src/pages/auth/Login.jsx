@@ -1,6 +1,8 @@
 import { useState, useContext } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
+import { ToastContainer } from 'react-toastify';
+import { notifyError, notifyWarning, notifySuccess } from '../../utilities/messageFunctions.js';
 
 import { MdAlternateEmail } from 'react-icons/md'
 import { BiKey } from 'react-icons/bi'
@@ -10,19 +12,42 @@ export default function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState(false)
 
     const handleLogin = async () => {
         try {
-            login(email, password)
+            if (email == '' || password == '') {
+                notifyWarning('Please input email and password.')
+                return
+            }
+            login(email, password, setError)
+            if (error) {
+                notifyError('Bad email or password. Try again.')
+                return
+            }
+            notifySuccess('Success! You logged in.')
             return <Navigate to="/" />
-
-        } catch (error) {
-            console.log('error')
+        } catch (e) {
         }
     }
 
+
     return (user ? <Navigate to="/" /> :
         <div className='login'>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            {/* Same as */}
+            <ToastContainer />
             <div className="login__wrapper">
                 <div className="login__text">
                     <h2>Storynest</h2>

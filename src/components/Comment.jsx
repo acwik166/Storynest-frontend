@@ -3,8 +3,10 @@ import { useState, useEffect, useContext } from 'react'
 import Like from './Like'
 import CommentDate from './CommentDate'
 import { AuthContext } from '../context/AuthContext'
+import { ToastContainer } from 'react-toastify';
 
 import headers from '../utilities/fetchOptions'
+import { notifySuccess, notifyInfo } from '../utilities/messageFunctions.js'
 
 export default function Comment({ comment, setComments, comments }) {
     const { user } = useContext(AuthContext)
@@ -33,6 +35,7 @@ export default function Comment({ comment, setComments, comments }) {
                 method: 'DELETE',
             })
             setComments(prev => prev.filter(item => item._id !== comment._id))
+            notifyInfo('Comment has been deleted.')
         } catch (error) {
             console.log(error)
         }
@@ -57,28 +60,44 @@ export default function Comment({ comment, setComments, comments }) {
             const item = commentsList.find(i => i._id === comment?._id)
             item.text = commentEdit
             setComments(commentsList)
-
+            notifySuccess('Comment has been edited.')
         } catch (error) {
             console.log(error)
         }
     }
 
     return (
-        <div className='comment'>
-            <div className="comment-wrapper">
-                <div className="details">
-                    <h3>{author?.first_name} {author?.last_name}</h3>
-                    <CommentDate date={comment?.createdAt} />
-                    {showCommentEdit ? <input type="text" className='comment-edit' placeholder={comment?.text} value={commentEdit} onChange={(e) => setCommentEdit(e.target.value)} /> :
-                        <p>{comment?.text}</p>
-                    }
-                    <Like object={comment} name={'comments'} />
+        <>
+            <div className='comment'>
+                <div className="comment-wrapper">
+                    <div className="details">
+                        <h3>{author?.first_name} {author?.last_name}</h3>
+                        <CommentDate date={comment?.createdAt} />
+                        {showCommentEdit ? <input type="text" className='comment-edit' placeholder={comment?.text} value={commentEdit} onChange={(e) => setCommentEdit(e.target.value)} /> :
+                            <p>{comment?.text}</p>
+                        }
+                        <Like object={comment} name={'comments'} />
+                    </div>
+                    <div className="btns">
+                        {comment.author === author?._id ? <><button className='btn-edit' onClick={() => setShowCommentEdit(prev => !prev)}></button><button className="btn-delete" onClick={handleDelete}></button></> : ''}
+                    </div>
                 </div>
-                <div className="btns">
-                    {comment.author === author?._id ? <><button className='btn-edit' onClick={() => setShowCommentEdit(prev => !prev)}></button><button className="btn-delete" onClick={handleDelete}></button></> : ''}
-                </div>
+                {showCommentEdit ? <button className='app-btn app-btn--accent' onClick={handleEdit}>Update</button> : ''}
             </div>
-            {showCommentEdit ? <button className='app-btn app-btn--accent' onClick={handleEdit}>Update</button> : ''}
-        </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            {/* Same as */}
+            <ToastContainer />
+        </>
     )
 }

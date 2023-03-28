@@ -96,7 +96,6 @@ export default function TextEditor() {
 
     useEffect(() => {
         const s = io('https://storynestbackend-production.up.railway.app')
-        console.log(s)
         setSocket(s)
 
         return () => {
@@ -133,7 +132,7 @@ export default function TextEditor() {
         })
 
         socket.on('receive-changes', handler)
-    })
+    }, [socket, quill])
 
 
     return (
