@@ -25,7 +25,7 @@ To deploy this project run
 ## Demo
 
 Demo account: 
-email: test1@test.com 
+email: test1@test1.com 
 password: test1
 
 or register a new account
